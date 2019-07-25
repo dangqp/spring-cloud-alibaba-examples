@@ -1,0 +1,27 @@
+#和配置中心配置文件名称一致
+spring.application.name=nacos-config
+server.port=8083
+#spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
+spring.cloud.nacos.config.server-addr=127.0.0.1:8848
+# spring.application.name与nacos配置不一样时可以使用下面配置指定要加载的配置文件
+#spring.cloud.nacos.config.prefix=nacos-config
+
+########################多环境配置########################
+#配置文件文件名称命名方式
+#多环境配置配置文件${spring.application.name}-${spring.profiles.active}.properties
+#spring.profiles.active=dev
+#spring.cloud.nacos.config.prefix=${spring.application.name}-${spring.profiles.active}
+################################################
+spring.cloud.nacos.config.file- extension=properties
+
+################################################
+#利用GROUP来管理配置文件
+#spring.cloud.nacos.config.group=DEV_GROUP
+################################################
+
+###############################################
+#注意namespace的配置不是使用名称，而是使用Namespace的ID
+spring.cloud.nacos.config.namespace=8f9b8d6a-bef4-4e55-a268-5d240a2169df
+###############################################
+
+
