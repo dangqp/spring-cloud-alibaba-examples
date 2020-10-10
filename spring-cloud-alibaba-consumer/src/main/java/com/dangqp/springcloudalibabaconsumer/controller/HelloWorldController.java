@@ -4,7 +4,9 @@ import com.dangqp.springcloudalibabaconsumer.remote.HelloRemoteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,4 +52,23 @@ public class HelloWorldController {
         log.info("invoked name = " + name);
         return helloRemoteService.hello(name);
     }
+
+//    @Autowired
+//    private WebClient.Builder webClientBuilder;
+//
+//    @GetMapping("/test")
+//    public Mono<String> test() {
+//        Mono<String> result = webClientBuilder.build()
+//                .get()
+//                .uri("http://alibaba-nacos-discovery-server/hello?name=didi")
+//                .retrieve()
+//                .bodyToMono(String.class);
+//        return result;
+//    }
+//
+//    @Bean
+//    @LoadBalanced
+//    public WebClient.Builder loadBalancedWebClientBuilder() {
+//        return WebClient.builder();
+//    }
 }
